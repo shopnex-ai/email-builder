@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 
 import { ToggleButton } from '@mui/material';
-import { ButtonProps, ButtonPropsDefaults, ButtonPropsSchema } from '@usewaypoint/block-button';
+import { ButtonProps, ButtonPropsDefaults, ButtonPropsSchema } from '@emailstudio/block-button';
 
 import BaseSidebarPanel from './helpers/BaseSidebarPanel';
 import ColorInput from './helpers/inputs/ColorInput';
 import RadioGroupInput from './helpers/inputs/RadioGroupInput';
 import TextInput from './helpers/inputs/TextInput';
 import MultiStylePropertyPanel from './helpers/style-inputs/MultiStylePropertyPanel';
+import Zod from 'zod';
 
 type ButtonSidebarPanelProps = {
   data: ButtonProps;
@@ -40,6 +41,7 @@ export default function ButtonSidebarPanel({ data, setData }: ButtonSidebarPanel
         label="Text"
         defaultValue={text}
         onChange={(text) => updateData({ ...data, props: { ...data.props, text } })}
+        autoFocus={true}
       />
       <TextInput
         label="Url"
@@ -49,7 +51,12 @@ export default function ButtonSidebarPanel({ data, setData }: ButtonSidebarPanel
       <RadioGroupInput
         label="Width"
         defaultValue={fullWidth ? 'FULL_WIDTH' : 'AUTO'}
-        onChange={(v) => updateData({ ...data, props: { ...data.props, fullWidth: v === 'FULL_WIDTH' } })}
+        onChange={(v) =>
+          updateData({
+            ...data,
+            props: { ...data.props, fullWidth: v === 'FULL_WIDTH' },
+          })
+        }
       >
         <ToggleButton value="FULL_WIDTH">Full</ToggleButton>
         <ToggleButton value="AUTO">Auto</ToggleButton>
@@ -67,7 +74,12 @@ export default function ButtonSidebarPanel({ data, setData }: ButtonSidebarPanel
       <RadioGroupInput
         label="Style"
         defaultValue={buttonStyle}
-        onChange={(buttonStyle) => updateData({ ...data, props: { ...data.props, buttonStyle } })}
+        onChange={(buttonStyle) =>
+          updateData({
+            ...data,
+            props: { ...data.props, buttonStyle },
+          })
+        }
       >
         <ToggleButton value="rectangle">Rectangle</ToggleButton>
         <ToggleButton value="rounded">Rounded</ToggleButton>
@@ -76,12 +88,22 @@ export default function ButtonSidebarPanel({ data, setData }: ButtonSidebarPanel
       <ColorInput
         label="Text color"
         defaultValue={buttonTextColor}
-        onChange={(buttonTextColor) => updateData({ ...data, props: { ...data.props, buttonTextColor } })}
+        onChange={(buttonTextColor) =>
+          updateData({
+            ...data,
+            props: { ...data.props, buttonTextColor },
+          })
+        }
       />
       <ColorInput
         label="Button color"
         defaultValue={buttonBackgroundColor}
-        onChange={(buttonBackgroundColor) => updateData({ ...data, props: { ...data.props, buttonBackgroundColor } })}
+        onChange={(buttonBackgroundColor) =>
+          updateData({
+            ...data,
+            props: { ...data.props, buttonBackgroundColor },
+          })
+        }
       />
       <MultiStylePropertyPanel
         names={['backgroundColor', 'fontFamily', 'fontSize', 'fontWeight', 'textAlign', 'padding']}

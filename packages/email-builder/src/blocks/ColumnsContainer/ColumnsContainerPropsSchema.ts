@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-import { ColumnsContainerPropsSchema as BaseColumnsContainerPropsSchema } from '@usewaypoint/block-columns-container';
+import { ColumnsContainerPropsSchema as BaseColumnsContainerPropsSchema } from '@emailstudio/block-columns-container';
 
 const BasePropsShape = BaseColumnsContainerPropsSchema.shape.props.unwrap().unwrap().shape;
 

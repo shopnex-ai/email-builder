@@ -1,3 +1,3 @@
-# @usewaypoint/block-spacer
+# @emailstudio/block-spacer
 
 Spacer component for use with the EmailBuilder package.

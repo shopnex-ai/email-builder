@@ -1,18 +1,30 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 
-import { MonitorOutlined, PhoneIphoneOutlined } from '@mui/icons-material';
-import { Box, Stack, SxProps, ToggleButton, ToggleButtonGroup, Tooltip } from '@mui/material';
-import { Reader } from '@usewaypoint/email-builder';
+import { MonitorOutlined, PhoneIphoneOutlined, Save } from '@mui/icons-material';
+import {
+  Box,
+  Stack,
+  SxProps,
+  ToggleButton,
+  ToggleButtonGroup,
+  Tooltip,
+  IconButton,
+  useTheme,
+  Input,
+} from '@mui/material';
+import { Reader, renderToStaticMarkup } from '@emailstudio/email-builder';
 
 import EditorBlock from '../../documents/editor/EditorBlock';
 import {
   setSelectedScreenSize,
+  setTemplateName,
   useDocument,
   useSelectedMainTab,
   useSelectedScreenSize,
+  useTemplateName,
 } from '../../documents/editor/EditorContext';
+import { TEditorConfiguration } from '../../documents/editor/core';
 import ToggleInspectorPanelButton from '../InspectorDrawer/ToggleInspectorPanelButton';
-import ToggleSamplesPanelButton from '../SamplesDrawer/ToggleSamplesPanelButton';
 
 import DownloadJson from './DownloadJson';
 import HtmlPanel from './HtmlPanel';
@@ -20,14 +32,38 @@ import ImportJson from './ImportJson';
 import JsonPanel from './JsonPanel';
 import MainTabsGroup from './MainTabsGroup';
 import ShareButton from './ShareButton';
+import UndoRedo from './UndoRedo';
 
-export default function TemplatePanel() {
+export default function TemplatePanel({
+  onSave,
+  templateName,
+}: {
+  onSave?: (output: { html: string; json: TEditorConfiguration; name: string }) => void;
+  templateName: string;
+}) {
+  const theme = useTheme();
   const document = useDocument();
   const selectedMainTab = useSelectedMainTab();
   const selectedScreenSize = useSelectedScreenSize();
+  const currentTemplateName = useTemplateName();
+
+  const htmlOutput = useMemo(() => {
+    return renderToStaticMarkup(document, { rootBlockId: 'root' });
+  }, [document]);
+
+  const handleSave = () => {
+    if (onSave) {
+      onSave({
+        html: htmlOutput,
+        json: document,
+        name: currentTemplateName,
+      });
+    }
+  };
 
   let mainBoxSx: SxProps = {
     height: '100%',
+    backgroundColor: theme.palette.background.paper,
   };
   if (selectedScreenSize === 'mobile') {
     mainBoxSx = {
@@ -35,8 +71,8 @@ export default function TemplatePanel() {
       margin: '32px auto',
       width: 370,
       height: 800,
-      boxShadow:
-        'rgba(33, 36, 67, 0.04) 0px 10px 20px, rgba(33, 36, 67, 0.04) 0px 2px 6px, rgba(33, 36, 67, 0.04) 0px 0px 1px',
+      boxShadow: theme.shadows[2],
+      borderRadius: 1,
     };
   }
 
@@ -76,10 +112,9 @@ export default function TemplatePanel() {
     <>
       <Stack
         sx={{
-          height: 49,
           borderBottom: 1,
           borderColor: 'divider',
-          backgroundColor: 'white',
+          backgroundColor: theme.palette.background.paper,
           position: 'sticky',
           top: 0,
           zIndex: 'appBar',
@@ -89,12 +124,28 @@ export default function TemplatePanel() {
         justifyContent="space-between"
         alignItems="center"
       >
-        <ToggleSamplesPanelButton />
+        <Box />
         <Stack px={2} direction="row" gap={2} width="100%" justifyContent="space-between" alignItems="center">
           <Stack direction="row" spacing={2}>
             <MainTabsGroup />
+            <Input
+              placeholder="Email template..."
+              value={currentTemplateName}
+              onChange={(e) => {
+                setTemplateName(e.target.value);
+              }}
+              disableUnderline
+            />
           </Stack>
           <Stack direction="row" spacing={2}>
+            <UndoRedo />
+            {onSave && (
+              <Tooltip title="Save">
+                <IconButton size="small" onClick={handleSave}>
+                  <Save fontSize="small" />
+                </IconButton>
+              </Tooltip>
+            )}
             <DownloadJson />
             <ImportJson />
             <ToggleButtonGroup value={selectedScreenSize} exclusive size="small" onChange={handleScreenSizeChange}>
@@ -114,7 +165,16 @@ export default function TemplatePanel() {
         </Stack>
         <ToggleInspectorPanelButton />
       </Stack>
-      <Box sx={{ height: 'calc(100vh - 49px)', overflow: 'auto', minWidth: 370 }}>{renderMainPanel()}</Box>
+      <Box
+        sx={{
+          height: 'calc(100vh - 49px)',
+          overflow: 'auto',
+          minWidth: 370,
+          backgroundColor: theme.palette.background.default,
+        }}
+      >
+        {renderMainPanel()}
+      </Box>
     </>
   );
 }

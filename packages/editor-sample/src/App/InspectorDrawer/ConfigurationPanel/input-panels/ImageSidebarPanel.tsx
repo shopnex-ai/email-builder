@@ -6,13 +6,14 @@ import {
   VerticalAlignTopOutlined,
 } from '@mui/icons-material';
 import { Stack, ToggleButton } from '@mui/material';
-import { ImageProps, ImagePropsSchema } from '@usewaypoint/block-image';
+import { ImageProps, ImagePropsSchema } from '@emailstudio/block-image';
 
 import BaseSidebarPanel from './helpers/BaseSidebarPanel';
 import RadioGroupInput from './helpers/inputs/RadioGroupInput';
 import TextDimensionInput from './helpers/inputs/TextDimensionInput';
 import TextInput from './helpers/inputs/TextInput';
 import MultiStylePropertyPanel from './helpers/style-inputs/MultiStylePropertyPanel';
+import Zod from 'zod';
 
 type ImageSidebarPanelProps = {
   data: ImageProps;
@@ -64,14 +65,24 @@ export default function ImageSidebarPanel({ data, setData }: ImageSidebarPanelPr
         <TextDimensionInput
           label="Height"
           defaultValue={data.props?.height}
-          onChange={(height) => updateData({ ...data, props: { ...data.props, height } })}
+          onChange={(height) =>
+            updateData({
+              ...data,
+              props: { ...data.props, height },
+            })
+          }
         />
       </Stack>
 
       <RadioGroupInput
         label="Alignment"
         defaultValue={data.props?.contentAlignment ?? 'middle'}
-        onChange={(contentAlignment) => updateData({ ...data, props: { ...data.props, contentAlignment } })}
+        onChange={(contentAlignment) =>
+          updateData({
+            ...data,
+            props: { ...data.props, contentAlignment },
+          })
+        }
       >
         <ToggleButton value="top">
           <VerticalAlignTopOutlined fontSize="small" />

@@ -1,3 +1,3 @@
-# @usewaypoint/block-button
+# @emailstudio/block-button
 
 Button component for use with the EmailBuilder package.

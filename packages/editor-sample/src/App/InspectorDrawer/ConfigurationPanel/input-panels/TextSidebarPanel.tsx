@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 
-import { TextProps, TextPropsSchema } from '@usewaypoint/block-text';
+import { TextProps, TextPropsSchema } from '@emailstudio/block-text';
 
 import BaseSidebarPanel from './helpers/BaseSidebarPanel';
 import BooleanInput from './helpers/inputs/BooleanInput';
 import TextInput from './helpers/inputs/TextInput';
 import MultiStylePropertyPanel from './helpers/style-inputs/MultiStylePropertyPanel';
+import Zod from 'zod';
 
 type TextSidebarPanelProps = {
   data: TextProps;
@@ -31,6 +32,7 @@ export default function TextSidebarPanel({ data, setData }: TextSidebarPanelProp
         rows={5}
         defaultValue={data.props?.text ?? ''}
         onChange={(text) => updateData({ ...data, props: { ...data.props, text } })}
+        autoFocus={true}
       />
       <BooleanInput
         label="Markdown"

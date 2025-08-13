@@ -1,7 +1,7 @@
 {
-  "name": "@usewaypoint/block-text",
+  "name": "@emailstudio/block-text",
   "version": "0.0.6",
-  "description": "@usewaypoint/document compatible Text component",
+  "description": "@emailstudio/document compatible Text component",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -18,7 +18,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "carlos@usewaypoint.com",
+  "author": "carlos@emailstudio.com",
   "license": "MIT",
   "peerDependencies": {
     "react": "^16 || ^17 || ^18",

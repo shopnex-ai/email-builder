@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 
-import { renderToStaticMarkup } from '@usewaypoint/email-builder';
+import { renderToStaticMarkup } from '@emailstudio/email-builder';
 
 import { useDocument } from '../../documents/editor/EditorContext';
 

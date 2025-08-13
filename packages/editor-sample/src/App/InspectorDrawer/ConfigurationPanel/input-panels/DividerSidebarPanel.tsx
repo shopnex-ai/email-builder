@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 
 import { HeightOutlined } from '@mui/icons-material';
-import { DividerProps, DividerPropsDefaults, DividerPropsSchema } from '@usewaypoint/block-divider';
+import { DividerProps, DividerPropsDefaults, DividerPropsSchema } from '@emailstudio/block-divider';
 
 import BaseSidebarPanel from './helpers/BaseSidebarPanel';
 import ColorInput from './helpers/inputs/ColorInput';
 import SliderInput from './helpers/inputs/SliderInput';
 import MultiStylePropertyPanel from './helpers/style-inputs/MultiStylePropertyPanel';
+import Zod from 'zod';
 
 type DividerSidebarPanelProps = {
   data: DividerProps;
@@ -42,7 +43,12 @@ export default function DividerSidebarPanel({ data, setData }: DividerSidebarPan
         min={1}
         max={24}
         defaultValue={lineHeight}
-        onChange={(lineHeight) => updateData({ ...data, props: { ...data.props, lineHeight } })}
+        onChange={(lineHeight) =>
+          updateData({
+            ...data,
+            props: { ...data.props, lineHeight },
+          })
+        }
       />
       <MultiStylePropertyPanel
         names={['backgroundColor', 'padding']}

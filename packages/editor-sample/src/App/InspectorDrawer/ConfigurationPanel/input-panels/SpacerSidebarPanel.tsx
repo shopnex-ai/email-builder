@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 
 import { HeightOutlined } from '@mui/icons-material';
-import { SpacerProps, SpacerPropsDefaults, SpacerPropsSchema } from '@usewaypoint/block-spacer';
+import { SpacerProps, SpacerPropsDefaults, SpacerPropsSchema } from '@emailstudio/block-spacer';
 
 import BaseSidebarPanel from './helpers/BaseSidebarPanel';
 import SliderInput from './helpers/inputs/SliderInput';
+import Zod from 'zod';
 
 type SpacerSidebarPanelProps = {
   data: SpacerProps;

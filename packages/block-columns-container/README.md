@@ -1,3 +1,3 @@
-# @usewaypoint/block-columns-container
+# @emailstudio/block-columns-container
 
 ColumnsContainer component for use with the EmailBuilder package.

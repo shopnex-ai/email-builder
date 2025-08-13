@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 
 import { AspectRatioOutlined } from '@mui/icons-material';
 import { ToggleButton } from '@mui/material';
-import { AvatarProps, AvatarPropsDefaults, AvatarPropsSchema } from '@usewaypoint/block-avatar';
+import { AvatarProps, AvatarPropsDefaults, AvatarPropsSchema } from '@emailstudio/block-avatar';
 
 import BaseSidebarPanel from './helpers/BaseSidebarPanel';
 import RadioGroupInput from './helpers/inputs/RadioGroupInput';
 import SliderInput from './helpers/inputs/SliderInput';
 import TextInput from './helpers/inputs/TextInput';
 import MultiStylePropertyPanel from './helpers/style-inputs/MultiStylePropertyPanel';
+import Zod from 'zod';
 
 type AvatarSidebarPanelProps = {
   data: AvatarProps;

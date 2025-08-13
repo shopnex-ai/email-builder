@@ -11,8 +11,35 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
-    steps:
+        timeout-minutes: 5
+        steps:
+            - uses: actions/setup-node@v3
+                with:
+                    node-version: 20
+                    cache: 'pnpm'
+                    cache-dependency-path: '**/pnpm-lock.yaml'
+            - run: pnpm install
+                working-directory: ./packages/block-avatar
+            - run: pnpm install
+                working-directory: ./packages/block-button
+            - run: pnpm install
+                working-directory: ./packages/block-divider
+            - run: pnpm install
+                working-directory: ./packages/block-heading
+            - run: pnpm install
+                working-directory: ./packages/block-html
+            - run: pnpm install
+                working-directory: ./packages/block-image
+            - run: pnpm install
+                working-directory: ./packages/block-spacer
+            - run: pnpm install
+                working-directory: ./packages/block-text
+            - run: pnpm install
+                working-directory: ./packages/document-core
+            - run: pnpm install
+                working-directory: ./packages/editor-sample
+            - run: pnpm install
+                working-directory: ./packages/email-builder
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v3
         with:

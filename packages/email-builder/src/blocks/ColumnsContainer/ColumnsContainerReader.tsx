@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ColumnsContainer as BaseColumnsContainer } from '@usewaypoint/block-columns-container';
+import { ColumnsContainer as BaseColumnsContainer } from '@emailstudio/block-columns-container';
 
 import { ReaderBlock } from '../../Reader/core';
 

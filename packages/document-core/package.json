@@ -1,5 +1,5 @@
 {
-  "name": "@usewaypoint/document-core",
+  "name": "@emailstudio/document-core",
   "version": "0.0.6",
   "description": "Tools to render waypoint-style documents (core package)",
   "main": "./dist/index.js",
@@ -18,7 +18,7 @@
   "scripts": {
     "build": "npx tsc"
   },
-  "author": "carlos@usewaypoint.com",
+  "author": "carlos@emailstudio.com",
   "license": "MIT",
   "peerDependencies": {
     "react": "^16 || ^17 || ^18",

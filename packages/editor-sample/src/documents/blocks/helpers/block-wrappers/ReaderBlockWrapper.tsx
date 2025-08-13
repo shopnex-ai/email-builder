@@ -1,26 +1,29 @@
-import React, { CSSProperties } from 'react';
+import React, { CSSProperties, JSX } from "react";
 
-import { TStyle } from '../TStyle';
+import { TStyle } from "../TStyle";
 
 type TReaderBlockWrapperProps = {
-  style: TStyle;
-  children: JSX.Element;
+    style: TStyle;
+    children: JSX.Element;
 };
 
-export default function ReaderBlockWrapper({ style, children }: TReaderBlockWrapperProps) {
-  const { padding, borderColor, ...restStyle } = style;
-  const cssStyle: CSSProperties = {
-    ...restStyle,
-  };
+export default function ReaderBlockWrapper({
+    style,
+    children,
+}: TReaderBlockWrapperProps) {
+    const { padding, borderColor, ...restStyle } = style;
+    const cssStyle: CSSProperties = {
+        ...restStyle,
+    };
 
-  if (padding) {
-    const { top, bottom, left, right } = padding;
-    cssStyle.padding = `${top}px ${right}px ${bottom}px ${left}px`;
-  }
+    if (padding) {
+        const { top, bottom, left, right } = padding;
+        cssStyle.padding = `${top}px ${right}px ${bottom}px ${left}px`;
+    }
 
-  if (borderColor) {
-    cssStyle.border = `1px solid ${borderColor}`;
-  }
+    if (borderColor) {
+        cssStyle.border = `1px solid ${borderColor}`;
+    }
 
-  return <div style={{ maxWidth: '100%', ...cssStyle }}>{children}</div>;
+    return <div style={{ maxWidth: "100%", ...cssStyle }}>{children}</div>;
 }

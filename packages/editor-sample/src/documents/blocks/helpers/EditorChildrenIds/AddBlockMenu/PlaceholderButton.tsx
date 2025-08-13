@@ -19,7 +19,7 @@ export default function PlaceholderButton({ onClick }: Props) {
         justifyContent: 'center',
         height: 48,
         width: '100%',
-        bgcolor: 'rgba(0,0,0, 0.05)',
+        bgcolor: 'cadet.200',
       }}
     >
       <AddOutlined

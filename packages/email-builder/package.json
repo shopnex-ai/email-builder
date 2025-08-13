@@ -1,5 +1,5 @@
 {
-  "name": "@usewaypoint/email-builder",
+  "name": "@emailstudio/email-builder",
   "version": "0.0.8",
   "description": "React component to render email messages",
   "main": "./dist/index.js",
@@ -18,7 +18,7 @@
   "scripts": {
     "build": "npx tsc"
   },
-  "author": "carlos@usewaypoint.com",
+  "author": "carlos@emailstudio.com",
   "license": "MIT",
   "peerDependencies": {
     "react": "^16 || ^17 || ^18",
@@ -26,16 +26,17 @@
     "zod": "^1 || ^2 || ^3"
   },
   "dependencies": {
-    "@usewaypoint/block-avatar": "^0.0.3",
-    "@usewaypoint/block-button": "^0.0.3",
-    "@usewaypoint/block-columns-container": "^0.0.3",
-    "@usewaypoint/block-container": "^0.0.2",
-    "@usewaypoint/block-divider": "^0.0.4",
-    "@usewaypoint/block-heading": "^0.0.3",
-    "@usewaypoint/block-html": "^0.0.3",
-    "@usewaypoint/block-image": "^0.0.5",
-    "@usewaypoint/block-spacer": "^0.0.3",
-    "@usewaypoint/block-text": "^0.0.6",
-    "@usewaypoint/document-core": "^0.0.6"
+    "@emailstudio/block-avatar": "workspace:*",
+    "@emailstudio/block-button": "workspace:*",
+    "@emailstudio/block-columns-container": "workspace:*",
+    "@emailstudio/block-container": "workspace:*",
+    "@emailstudio/block-divider": "workspace:*",
+    "@emailstudio/block-heading": "workspace:*",
+    "@emailstudio/block-html": "workspace:*",
+    "@emailstudio/block-image": "workspace:*",
+    "@emailstudio/block-spacer": "workspace:*",
+    "@emailstudio/block-text": "workspace:*",
+    "@emailstudio/document-core": "workspace:*",
+    "@emailstudio/email-builder": "workspace:*"
   }
 }

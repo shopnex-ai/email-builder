@@ -82,13 +82,13 @@ The email builder can output to a clean JSON or raw HTML. You can see this from 
 Install the package in your project:
 
 ```bash
-npm install --save @usewaypoint/email-builder
+npm install --save @emailstudio/email-builder
 ```
 
 Given an EmailBuilder.js configuration (the JSON output of the builder):
 
 ```javascript
-import { TReaderDocument } from '@usewaypoint/email-builder';
+import { TReaderDocument } from '@emailstudio/email-builder';
 
 const CONFIGURATION: TReaderDocument = {
   root: {
@@ -124,7 +124,7 @@ const CONFIGURATION: TReaderDocument = {
 You can render the EmailBuilder.js configuration to an HTML email string:
 
 ```javascript
-import { renderToStaticMarkup } from '@usewaypoint/email-builder';
+import { renderToStaticMarkup } from '@emailstudio/email-builder';
 
 const string = renderToStaticMarkup(CONFIGURATION, { rootBlockId: 'root' });
 ```
@@ -132,7 +132,7 @@ const string = renderToStaticMarkup(CONFIGURATION, { rootBlockId: 'root' });
 Or you can render the EmailBuilder.js configuration by using the `<Reader />` React component:
 
 ```javascript
-import { Reader } from '@usewaypoint/email-builder';
+import { Reader } from '@emailstudio/email-builder';
 
 <Reader document={CONFIGURATION} rootBlockId="root" />;
 ```
@@ -148,7 +148,7 @@ In most cases, you'll want to take the EmailBuilder.js configuration, render it 
 ### Sending through nodemailer
 
 ```javascript
-import { renderToStaticMarkup } from '@usewaypoint/email-builder';
+import { renderToStaticMarkup } from '@emailstudio/email-builder';
 import nodemailer from "nodemailer";
 
 // Replace this with your transport configuration
@@ -175,7 +175,7 @@ We'll use [Waypoint](https://www.usewaypoint.com) for this example, however, you
 ```javascript
 import axios from 'axios';
 
-import { renderToStaticMarkup } from '@usewaypoint/email-builder';
+import { renderToStaticMarkup } from '@emailstudio/email-builder';
 
 // Replace this with the JSON for your Reader document
 const CONFIGURATION: TReaderDocument = {}
@@ -237,4 +237,4 @@ EmailBuilder.js is the community version of our much-loved no-code template buil
 
 ## Looking for something special?
 
-Need special consultation, a one-off feature, integration, or something else for your business? We can help or put you in touch with someone that can – contact us at support@usewaypoint.com and share your details.
+Need special consultation, a one-off feature, integration, or something else for your business? We can help or put you in touch with someone that can – contact us at support@emailstudio.com and share your details.

@@ -1,3 +1,3 @@
-# @usewaypoint/block-avatar
+# @emailstudio/block-avatar
 
 Avatar component for use with the EmailBuilder package.

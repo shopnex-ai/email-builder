@@ -1,7 +1,7 @@
 {
-  "name": "@usewaypoint/block-html",
+  "name": "@emailstudio/block-html",
   "version": "0.0.3",
-  "description": "@usewaypoint/document compatible HTML component",
+  "description": "@emailstudio/document compatible HTML component",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -18,7 +18,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "carlos@usewaypoint.com",
+  "author": "carlos@emailstudio.com",
   "license": "MIT",
   "peerDependencies": {
     "react": "^16 || ^17 || ^18",

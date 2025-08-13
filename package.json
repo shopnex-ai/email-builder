@@ -1,5 +1,5 @@
 {
-  "name": "@usewaypoint-monorepo",
+  "name": "@emailstudio-monorepo",
   "version": "0.0.6",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -11,7 +11,7 @@
     "build": "npx tsc",
     "test": "npx jest"
   },
-  "author": "carlos@usewaypoint.com",
+  "author": "carlos@emailstudio.com",
   "license": "MIT",
   "devDependencies": {
     "@jest/globals": "^29.7.0",
